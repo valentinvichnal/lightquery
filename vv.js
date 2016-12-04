@@ -136,7 +136,7 @@
   };
 
   VVJS.fn.val = function (value) {
-    if (value || typeof value === 'string' && value.length === 0) {
+    if (value || typeof value === 'number' && value === 0 || typeof value === 'string' && value.length === 0) {
       return this.each(function () {
         this.value = value;
       });
