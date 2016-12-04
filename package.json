@@ -3,7 +3,7 @@
   "author": "Valentin Vichnal <valentin@vichnal.com>",
   "description": "Lightweight dom manipulation library",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
   },
