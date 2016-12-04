@@ -127,21 +127,21 @@
   };
 
   VVJS.fn.text = function (str) {
-    if (str) {
-      return this.each(function () {
-        this.innerText = str;
-      });
+    if (str === undefined) {
+      return this.length && this[0].innerText;
     }
-    return this.length && this[0].innerText;
+    return this.each(function () {
+      this.innerText = str;
+    });
   };
 
   VVJS.fn.val = function (value) {
-    if (value || typeof value === 'number' && value === 0 || typeof value === 'string' && value.length === 0) {
-      return this.each(function () {
-        this.value = value;
-      });
+    if (value === undefined) {
+      return this.length && this[0].value;
     }
-    return this.length && this[0].value;
+    return this.each(function () {
+      this.value = value;
+    });
   };
 
   VVJS.fn.html = function (str) {
