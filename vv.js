@@ -196,15 +196,15 @@ if (environment.browser) {
     });
 
     // Shim for Matches
-  HTMLElement.prototype.matches =
-    HTMLElement.prototype.matches ||
-    HTMLElement.prototype.matchesSelector ||
-    HTMLElement.prototype.webkitMatchesSelector ||
-    HTMLElement.prototype.mozMatchesSelector ||
-    HTMLElement.prototype.msMatchesSelector ||
-    HTMLElement.prototype.oMatchesSelector;
+    HTMLElement.prototype.matches =
+      HTMLElement.prototype.matches ||
+      HTMLElement.prototype.matchesSelector ||
+      HTMLElement.prototype.webkitMatchesSelector ||
+      HTMLElement.prototype.mozMatchesSelector ||
+      HTMLElement.prototype.msMatchesSelector ||
+      HTMLElement.prototype.oMatchesSelector;
 
-    window.VVJS = window.$ = VVJS; // $ is alias for VVJS
+    window.VVJS = window.$ = VVJS;
 
   })(window);
 }
