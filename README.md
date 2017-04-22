@@ -1,11 +1,11 @@
-# vv.js
+# lightquery
 Lightweight dom manipulation library
 
 ### Use:
 ```
-Exports window.$ and window.VVJS by default.
+Exports window.$ and window.lightquery by default.
 or
-var $ = require('vvjs');
+var $ = require('lightquery');
 ```
 
 ### API:

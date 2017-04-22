@@ -1,5 +1,5 @@
 {
-  "name": "vvjs",
+  "name": "lightquery",
   "author": "Valentin Vichnal <valentin@vichnal.com>",
   "description": "Lightweight dom manipulation library",
   "main": "index.js",

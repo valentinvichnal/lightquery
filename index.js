@@ -1,1 +1,1 @@
-module.exports = require('./vv.js');
+module.exports = require('./lightquery.js');
