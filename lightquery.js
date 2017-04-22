@@ -204,7 +204,7 @@ if (environment.browser) {
       HTMLElement.prototype.msMatchesSelector ||
       HTMLElement.prototype.oMatchesSelector;
 
-    window.lightquery = window.$ = lightquery;
+    window.$ = window.lightquery = lightquery;
 
   })(window);
 }
