@@ -1,15 +1,21 @@
 # lightquery
-Lightweight dom manipulation library
-
-### Use:
+Lightweight dom manipulation library (IE9+) - **3kb only**
 ```
-Exports window.$ and window.lightquery by default.
-or
+npm i --save lightquery
+```
+
+## Usage:
+Include before the closing body tag:
+```
+<script src="lightquery.js"></script>
+```
+or require it from the npm module
+```
 var $ = require('lightquery');
 ```
 
 ### API:
 LATER
 
-### Credit
+## Credit
 Aliaksandr Astashenkau - http://dfsq.info/site/read/writing-your-own-jquery
