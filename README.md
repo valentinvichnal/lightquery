@@ -10,3 +10,6 @@ var $ = require('lightquery');
 
 ### API:
 LATER
+
+### Credit
+Aliaksandr Astashenkau - http://dfsq.info/site/read/writing-your-own-jquery
