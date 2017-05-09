@@ -5,7 +5,7 @@ var environment = {
   browser: typeof window !== "undefined"
 };
 
-// lightquery constructor
+// #################################################################### lightquery constructor
 function lightquery(selector) {
   if (!(this instanceof lightquery)) {
     return new lightquery(selector);
@@ -51,7 +51,7 @@ function createNode(html) {
   return div.firstChild;
 }
 
-// Methods
+// #################################################################### lightquery methods
 lightquery.fn = lightquery.prototype;
 
 lightquery.fn.each = function (callback) {
@@ -179,6 +179,7 @@ lightquery.fn.trigger = function (eventName) {
   });
 };
 
+// #################################################################### Export - Based on environment
 if (environment.browser) {
   (function (window, undefined) {
     // Handle DOMContentLoaded event
