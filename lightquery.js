@@ -57,6 +57,14 @@ function createNode(html) {
 // #################################################################### lightquery methods
 lightquery.fn = lightquery.prototype;
 
+lightquery.fn.find = function (selector) {
+  if (this.length > 0) {
+    var child = this[0].querySelectorAll(selector);
+    if (child.length === 1) { child = child[0]; }
+    return lightquery(child);
+  }
+};
+
 lightquery.fn.each = function (callback) {
   for (var i = 0; i < this.length; i++) {
     callback.call(this[i], this, i);
