@@ -68,7 +68,7 @@ lightquery.fn.first = function (callback) {
   return this;
 };
 
-lightquery.fn.firstData = function (callback) {
+lightquery.fn.firstCallbackResult = function (callback) {
   if (this.length > 0) {
     return callback.call(this[0], this, 0);
   }
@@ -141,7 +141,7 @@ lightquery.fn.html = function (str) {
 };
 
 lightquery.fn.data = function (property) {
-  return this.firstData(function () {
+  return this.firstCallbackResult(function () {
     return this.dataset[property];
   });
 };
@@ -152,7 +152,7 @@ lightquery.fn.attr = function (property, newValue) {
       this.setAttribute(property, newValue);
     });
   }
-  return this.firstData(function () {
+  return this.firstCallbackResult(function () {
     return this.getAttribute(property);
   });
 };

@@ -125,11 +125,7 @@ Calls the callback on the first selected element.
 ```js
 $(selector).first(callback)
 ```
-#### $.firstData()
-Calls the callback on the first selected element and returns the callback's result.
-```js
-$(selector).firstData(callback)
-```
+
 #### $.eq()
 Returns the element from the selected elements on the given position.
 ```js
