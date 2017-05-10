@@ -7,20 +7,12 @@ var environment = {
 
 // #################################################################### lightquery constructor
 function lightquery(selector) {
-  if (!(this instanceof lightquery)) {
-    return new lightquery(selector);
-  }
+  if (!(this instanceof lightquery)) { return new lightquery(selector); }
+  if (typeof selector === 'function') { return handleDOMReady(selector); }
 
-  if (typeof selector === 'function') {
-    return handleDOMReady(selector);
-  }
-
-  // Save selector
-  this.selector = selector;
-  // Number of elements in collection
-  this.length = 0;
-  // Nodes collection array
-  this.nodes = [];
+  this.selector = selector; // Save selector
+  this.length = 0; // Number of elements in collection
+  this.nodes = []; // Nodes collection array
 
   // HTMLElements and NodeLists are wrapped in nodes array
   if (selector instanceof HTMLElement || selector instanceof NodeList || selector instanceof HTMLDocument) {
@@ -28,12 +20,10 @@ function lightquery(selector) {
   }
   else if (typeof selector === 'string') {
     if (selector[0] === '<' && selector[selector.length - 1] === ">") {
-      // Create DOM elements
-      this.nodes = [createNode(selector)];
+      this.nodes = [createNode(selector)]; // Create DOM elements
     }
     else {
-      // Query DOM
-      this.nodes = [].slice.call(document.querySelectorAll(selector));
+      this.nodes = [].slice.call(document.querySelectorAll(selector)); // Query DOM
     }
   }
 
