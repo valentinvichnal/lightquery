@@ -120,16 +120,21 @@ Iterates through the selected elements and calls the callback on each.
 ```js
 $(selector).each(callback)
 ```
-#### $.firstCallback()
-Calls the callback on the first selected element.
+#### $.first()
+Returns the first element in the selected elements.
 ```js
-$(selector).firstCallback(callback)
+$(selector).first()
 ```
-
 #### $.eq()
 Returns the element from the selected elements on the given position.
 ```js
 $(selector).eq(position)
+```
+
+#### $.firstCallback()
+Calls the callback on the first selected element.
+```js
+$(selector).firstCallback(callback)
 ```
 
 ## Credit

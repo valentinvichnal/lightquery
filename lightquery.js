@@ -64,6 +64,18 @@ lightquery.fn.each = function (callback) {
   return this;
 };
 
+lightquery.fn.first = function () {
+  if (this.length > 0) {
+    return lightquery(this[0]);
+  }
+};
+
+lightquery.fn.eq = function (position) {
+  if (this.length > position) {
+    return lightquery(this[position]);
+  }
+};
+
 lightquery.fn.firstCallback = function (callback) {
   if (this.length > 0) {
     callback.call(this[0], this, 0);
@@ -74,12 +86,6 @@ lightquery.fn.firstCallback = function (callback) {
 lightquery.fn.firstCallbackResult = function (callback) {
   if (this.length > 0) {
     return callback.call(this[0], this, 0);
-  }
-};
-
-lightquery.fn.eq = function (position) {
-  if (this.length > position) {
-    return lightquery(this[position]);
   }
 };
 
