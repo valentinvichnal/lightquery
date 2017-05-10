@@ -120,10 +120,10 @@ Iterates through the selected elements and calls the callback on each.
 ```js
 $(selector).each(callback)
 ```
-#### $.first()
+#### $.firstCallback()
 Calls the callback on the first selected element.
 ```js
-$(selector).first(callback)
+$(selector).firstCallback(callback)
 ```
 
 #### $.eq()

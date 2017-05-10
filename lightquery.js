@@ -61,7 +61,7 @@ lightquery.fn.each = function (callback) {
   return this;
 };
 
-lightquery.fn.first = function (callback) {
+lightquery.fn.firstCallback = function (callback) {
   if (this.length > 0) {
     callback.call(this[0], this, 0);
   }
