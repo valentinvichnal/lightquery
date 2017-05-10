@@ -28,7 +28,13 @@ function lightquery(selector) {
       this.nodes = [].slice.call(document.querySelectorAll(selector)); // Query DOM
     }
   }
-  this.length = this.nodes.length;
+
+  if (this.nodes.length) {
+    this.length = this.nodes.length;
+    for (var i = 0; i < this.nodes.length; i++) {
+      this[i] = this.nodes[i];
+    }
+  }
 }
 
 function runFunction(fn) {
@@ -53,33 +59,33 @@ lightquery.fn = lightquery.prototype;
 
 lightquery.fn.each = function (callback) {
   for (var i = 0; i < this.length; i++) {
-    callback.call(this.nodes[i], this, i);
+    callback.call(this[i], this, i);
   }
   return this;
 };
 
 lightquery.fn.first = function () {
   if (this.length > 0) {
-    return lightquery(this.nodes[0]);
+    return lightquery(this[0]);
   }
 };
 
 lightquery.fn.eq = function (position) {
   if (this.length > position) {
-    return lightquery(this.nodes[position]);
+    return lightquery(this[position]);
   }
 };
 
 lightquery.fn.firstCallback = function (callback) {
   if (this.length > 0) {
-    callback.call(this.nodes[0], this, 0);
+    callback.call(this[0], this, 0);
   }
   return this;
 };
 
 lightquery.fn.firstCallbackResult = function (callback) {
   if (this.length > 0) {
-    return callback.call(this.nodes[0], this, 0);
+    return callback.call(this[0], this, 0);
   }
 };
 
@@ -121,7 +127,7 @@ lightquery.fn.remove = function () {
 
 lightquery.fn.text = function (str) {
   if (str === undefined) {
-    return this.length && this.nodes[0].innerText;
+    return this.length && this[0].innerText;
   }
   return this.each(function () {
     this.innerText = str;
@@ -130,7 +136,7 @@ lightquery.fn.text = function (str) {
 
 lightquery.fn.val = function (value) {
   if (value === undefined) {
-    return this.length && this.nodes[0].value;
+    return this.length && this[0].value;
   }
   return this.each(function () {
     this.value = value;
