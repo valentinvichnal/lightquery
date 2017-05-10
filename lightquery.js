@@ -5,10 +5,12 @@ var environment = {
   browser: typeof window !== "undefined"
 };
 
+var FUNCTION_STACK = [];
+
 // #################################################################### lightquery constructor
 function lightquery(selector) {
   if (!(this instanceof lightquery)) { return new lightquery(selector); }
-  if (typeof selector === 'function') { return handleDOMReady(selector); }
+  if (typeof selector === 'function') { return runFunction(selector); }
 
   this.selector = selector; // Save selector
   this.length = 0; // Number of elements in collection
@@ -33,6 +35,17 @@ function lightquery(selector) {
       this[i] = this.nodes[i];
     }
   }
+}
+
+function runFunction(fn) {
+  document.addEventListener('DOMContentLoaded', function onDOMReady() {
+    document.removeEventListener('DOMContentLoaded', onDOMReady);
+    while (FUNCTION_STACK.length) {
+      FUNCTION_STACK.shift().call(document);
+    }
+  });
+
+  return document.readyState === 'complete' ? fn.call(document) : FUNCTION_STACK.push(fn);
 }
 
 function createNode(html) {
@@ -172,20 +185,7 @@ lightquery.fn.trigger = function (eventName) {
 // #################################################################### Export - Based on environment
 if (environment.browser) {
   (function (window, undefined) {
-    // Handle DOMContentLoaded event
-    var domReadyStack = [];
-
-    function handleDOMReady(fn) {
-      return document.readyState === 'complete' ? fn.call(document) : domReadyStack.push(fn);
-    }
-
-    document.addEventListener('DOMContentLoaded', function onDOMReady() {
-      document.removeEventListener('DOMContentLoaded', onDOMReady);
-      while (domReadyStack.length) {
-        domReadyStack.shift().call(document);
-      }
-    });
-
+    // ONLY FOR OLD BROWSERS
     // Shim for Matches
     HTMLElement.prototype.matches =
       HTMLElement.prototype.matches ||
